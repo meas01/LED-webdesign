@@ -6,6 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page_2</title>
     <link rel="stylesheet" href="style2.css">
+    <style>
+       
+        .custom-select-wrapper {
+            position: relative;
+            width: 300px;
+            width: 100%;
+           
+        }
+
+        .custom-select-trigger {
+            width: 100%;
+            cursor: pointer;
+          
+            
+        }
+
+        .custom-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .custom-select-wrapper.open .custom-options {
+            display: grid;
+            max-width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .custom-option {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .custom-option:hover {
+            background: #f0f0f0;
+            transform: scale(1.1);
+        }
+        .custom-option:active{
+            border:1px solid rgb(54, 80, 255);
+        }
+    </style>
 </head>
 
 <body>
@@ -23,8 +74,8 @@
             <span>a</span>
             <span>y</span>
         </div>
-        <div class="display_box">
-
+        <div class="display_box" id="display_box">
+           
         </div>
         <div class="All_btn">
             <div class="btn_1">
@@ -36,6 +87,21 @@
                     <span>Speed</span>
                     <input type="range" id="range">
                 </div>
+                <div>
+                    <div class="font_input">
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select-trigger" onclick="toggleOptions()">Select Font</div>
+                            <div class="custom-options">
+                                <div class="custom-option" style="font-family: Arial;" onclick="changeFont('Arial')">Arial</div>
+                                <div class="custom-option" style="font-family: 'Courier New';" onclick="changeFont('Courier New')">Courier New</div>
+                                <div class="custom-option" style="font-family: Georgia;" onclick="changeFont('Georgia')">Georgia</div>
+                                <div class="custom-option" style="font-family: Tahoma;" onclick="changeFont('Tahoma')">Tahoma</div>
+                                <div class="custom-option" style="font-family: 'Times New Roman';" onclick="changeFont('Times New Roman')">Times New Roman</div>
+                                <div class="custom-option" style="font-family: Verdana;" onclick="changeFont('Verdana')">Verdana</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="btn_2">
                 <div class="Text_color">
@@ -46,33 +112,69 @@
                     <span>Background Color</span>
                     <input type="color" id="pick-color" value="#FFFFFF">
                 </div>
+                <div>
+                    <div class="Animation_input">
+                        <span>Animation</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="btn_3">
             <a href="./Home_Page.html" style="text-decoration: none; color: black;" class="Back_btn">Back</a>
-            <div class="Frame_color">
-                <span>Font</span>
-                <select name="" id="select_font"  >
-                    <option value="Arial, sans-serif">Arial</option>
-                    <option value="'Courier New', Courier, monospace">Courier New</option>
-                    <option value="Georgia, serif">Georgia</option>
-                    <option value="'Times New Roman', Times, serif">Times New Roman</option>
-                    <option value="Verdana, sans-serif">Verdana</option>
-                    <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
-                    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
-                </select>
+            <div class="font_size">
+                <span>Size</span>
+                <input type="range" id="range">
             </div>
-            <button><a href="./Page_3.html" style="text-decoration: none; color: black;">Start</a></button>
-
+            <a href="./Page_3.html" class="start_btn" style="text-decoration: none; color: black;">Start</a>
         </div>
-
-
     </div>
 
-<script>
+    <script>
+        function changeFont(font) {
+            var textSample = document.getElementById('text-sample');
+            textSample.style.fontFamily = font;
+            toggleOptions(); // Close the custom dropdown after selection
+        }
 
-</script>
+        function toggleOptions() {
+            var wrapper = document.querySelector('.custom-select-wrapper');
+            wrapper.classList.toggle('open');
+        }
 
+        window.addEventListener('click', function(e) {
+            var wrapper = document.querySelector('.custom-select-wrapper');
+            if (!wrapper.contains(e.target)) {
+                wrapper.classList.remove('open');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const displayBox = document.getElementById('display_box');
+
+            displayBox.addEventListener('dblclick', () => {
+                if (!document.fullscreenElement) {
+                    if (displayBox.requestFullscreen) {
+                        displayBox.requestFullscreen();
+                    } else if (displayBox.mozRequestFullScreen) { // Firefox
+                        displayBox.mozRequestFullScreen();
+                    } else if (displayBox.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                        displayBox.webkitRequestFullscreen();
+                    } else if (displayBox.msRequestFullscreen) { // IE/Edge
+                        displayBox.msRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) { // Firefox
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) { // IE/Edge
+                        document.msExitFullscreen();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
