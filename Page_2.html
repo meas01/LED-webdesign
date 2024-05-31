@@ -266,29 +266,68 @@ document.addEventListener('keydown', function (event) {
     const box = document.getElementById('box');
 
     box.addEventListener('dblclick', () => {
-        if (!document.fullscreenElement) {
-            if (box.requestFullscreen) {
-                box.requestFullscreen();
-            } else if (box.mozRequestFullScreen) { // Firefox
-                box.mozRequestFullScreen();
-            } else if (box.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                box.webkitRequestFullscreen();
-            } else if (box.msRequestFullscreen) { // IE/Edge
-                box.msRequestFullscreen();
+                if (!document.fullscreenElement) {
+                    if (box.requestFullscreen) {
+                        box.requestFullscreen();
+                    } else if (box.mozRequestFullScreen) {
+                        box.mozRequestFullScreen();
+                    } else if (box.webkitRequestFullscreen) {
+                        box.webkitRequestFullscreen();
+                    } else if (box.msRequestFullscreen) {
+                        box.msRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    startRain();
+                }
+                if (event.key === 'ArrowLeft') {
+                    stopRain();
+                }
+            });
+
+            function startRain() {
+                for (let i = 0; i < 20; i++) {
+                    const raindrop = document.createElement('div');
+                    raindrop.className = 'rain';
+                    box.appendChild(raindrop);
+                }
             }
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { // Firefox
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { // IE/Edge
-                document.msExitFullscreen();
+
+            function stopRain() {
+                const raindrops = box.querySelectorAll('.rain');
+                raindrops.forEach(raindrop => box.removeChild(raindrop));
             }
-        }
-    });
-});
+        });
+    </script>
+</body>
+
+</html>
+Explanation:
+CSS Adjustments:
+Added necessary styles for smooth transitions and custom select options.
+Ens
+
+
+
+
+
+
+
+
+
 
     </script>
 </body>
