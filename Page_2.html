@@ -65,7 +65,7 @@
         }
         .box{
             overflow: hidden;
-            position: relative;
+            position: absolute;
             display:flex;
             justify-content: center;
             align-items: center;
@@ -226,18 +226,18 @@ function Start_to_End() {
     }
 }
 function updateLEDText_to_Box(value) {  
-    const DisplayText = document.querySelector('.display_box');
+    const DisplayText = document.querySelector('.box');
     DisplayText.textContent = value;
 }
 
 function updateTextColor() {
-    var displayText = document.querySelector('.display_box');
+    var displayText = document.querySelector('.box');
     var textColorPicker = document.getElementById('text-color-picker');
     displayText.style.color = textColorPicker.value;
 }
 
 function updateBackgroundColor() {
-    var displayBox = document.querySelector('.display_box');
+    var displayBox = document.querySelector('.box');
     var bgColorPicker = document.getElementById('bg-color-picker');
     displayBox.style.backgroundColor = bgColorPicker.value;
 }
