@@ -101,6 +101,18 @@
                 /* Move fully across the screen */
             }
         }
+        #box {
+    transition: all 0.5s ease;
+}
+
+:fullscreen #box, 
+:-webkit-full-screen #box, 
+:-moz-full-screen #box, 
+:-ms-fullscreen #box {
+    width: 100vw;
+    height: 100vh;
+}
+
     </style>
 </head>
 
@@ -249,6 +261,34 @@ document.addEventListener('keydown', function (event) {
 
 
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const box = document.getElementById('box');
+
+    box.addEventListener('dblclick', () => {
+        if (!document.fullscreenElement) {
+            if (box.requestFullscreen) {
+                box.requestFullscreen();
+            } else if (box.mozRequestFullScreen) { // Firefox
+                box.mozRequestFullScreen();
+            } else if (box.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                box.webkitRequestFullscreen();
+            } else if (box.msRequestFullscreen) { // IE/Edge
+                box.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+        }
+    });
+});
 
     </script>
 </body>
