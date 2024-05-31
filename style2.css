@@ -138,7 +138,7 @@ body {
     height: 5px;
     width: 100%;
 }
-#pick-color{
+#bg-color-picker {
     border: none;
     width: 30px;
     height: 30px;
@@ -146,22 +146,48 @@ body {
     padding: 0;
     cursor: pointer;
 }
-#pick-color::-webkit-color-swatch-wrapper {
+#bg-color-picker::-webkit-color-swatch-wrapper {
     padding: 0;
 }
 
-#pick-color::-webkit-color-swatch {
+#bg-color-picker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
     padding: 0;
 }
 
-#pick-color::-moz-color-swatch {
+#bg-color-picker::-moz-color-swatch {
     border: none;
     border-radius: 50%;
     padding: 0;
 }
-#pick-color:hover {
+#bg-color-picker:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+#text-color-picker {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+}
+#text-color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#text-color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+
+#text-color-picker::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+#text-color-picker:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .btn_3 {
