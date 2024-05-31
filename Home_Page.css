@@ -113,8 +113,7 @@ body {
     border:2px solid rgb(54, 80, 255);
     transform: scale(1.1);
 }
-.LED_btn {
-    background-color: #D9D9D9;
+/* #header{
     width:142px ;
     text-align: center;
     border:none;
@@ -124,31 +123,73 @@ body {
     -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     font-size: 22px;
     padding: 10px;
+} */
+#frame_btn{
+    width:142px ;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    font-size: 22px;
+    padding: 10px;
+}
+.LED_btn {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #D9D9D9;
     color:black;
 }
 .Dis_btn{
-    background-color: #FF0000;
     width:142px ;
+    text-align: center;
     border:none;
+    font-family: 'Times New Roman', Times, serif;
     border-radius: 5px;
     box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     -webkit-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     font-size: 22px;
     padding: 10px;
+
+    background-color: #FF0000;
     color:white;
 }
 .About_btn {
-    background-color: #FF8C04;
     width:142px ;
-    border:none;
+    text-align: center;
+    border:none;font-family: 'Times New Roman', Times, serif;
     border-radius: 5px;
     box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     -webkit-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
     font-size: 22px;
     padding: 10px;
+
+    background-color: #FF8C04;
     color: black;
+}
+.content {
+    text-align: center;
+}
+
+.content-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content-text {
+    font-size: 16px;
+    font-weight: 300;
+}
+.additional-text{
+    max-width: 600px;
+    display: none;
+    box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 1%;
 }
 
 
