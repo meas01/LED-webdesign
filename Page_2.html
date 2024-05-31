@@ -58,38 +58,45 @@
         .custom-option:active {
             border: 1px solid rgb(54, 80, 255);
         }
-        .Text_input{
-           display:flex;
-           justify-content: center;
-           align-items: center;
-        }
-        .box{
-            overflow: hidden;
-            position: absolute;
-            display:flex;
+
+        .Text_input {
+            display: flex;
             justify-content: center;
             align-items: center;
         }
-        .display_box{
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
-        .display_box{
-            position: absolute;
-            white-space: nowrap;
-            animation: moveRightToLeft 10s linear infinite;
-        }
-        @keyframes moveRightToLeft {
-            0% {
-                right: -100%;
-            }
 
-            100% {
-                right: 100%;
-            }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Allow horizontal scrolling */
+            white-space: nowrap; /* Ensure text doesn't wrap */
+            overflow: hidden;
+            position: relative;
         }
+        
+        /* Animation to scroll text from right to left */
+        .scroll-animation {
+    position: absolute;
+    animation: moveRightToLeft 10s linear infinite;
+}
+
+
+        .display_box {
+            color: white;
+            position: absolute;
+            white-space: nowrap; 
+        }
+
+        /* Keyframes for the animation */
+        @keyframes moveRightToLeft {
+    0% {
+        left: 100%; /* Start off-screen */
+    }
+
+    100% {
+        left: -100%; /* Move fully across the screen */
+    }
+}
 
     </style>
 </head>
@@ -110,7 +117,8 @@
             <span>y</span>
         </div>
         <div class="box" id="box">
-            <div class="display_box" id="display_box">Loading....</div>
+            <div class="display_box" id="display_box">
+            </div>
         </div>
         <div class="All_btn">
             <div class="btn_1">
@@ -151,7 +159,7 @@
                 </div>
                 <div class="Bg_color">
                     <span>Background Color</span>
-                    <input type="color" id="bg-color-picker" value="#FFFFFF">
+                    <input type="color" id="bg-color-picker" >
                 </div>
                 <div>
                     <div class="Animation_input">
@@ -171,86 +179,43 @@
     </div>
 
     <script>
-        /*  function changeFont(font) {
-              var textSample = document.getElementById('text-sample');
-              textSample.style.fontFamily = font;
-              toggleOptions(); // Close the custom dropdown after selection
-          }
-  
-          function toggleOptions() {
-              var wrapper = document.querySelector('.custom-select-wrapper');
-              wrapper.classList.toggle('open');
-          }
-  
-          window.addEventListener('click', function(e) {
-              var wrapper = document.querySelector('.custom-select-wrapper');
-              if (!wrapper.contains(e.target)) {
-                  wrapper.classList.remove('open');
-              }
-          });
-          document.addEventListener('DOMContentLoaded', () => {
-              const displayBox = document.getElementById('display_box');
-  
-              displayBox.addEventListener('dblclick', () => {
-                  if (!document.fullscreenElement) {
-                      if (displayBox.requestFullscreen) {
-                          displayBox.requestFullscreen();
-                      } else if (displayBox.mozRequestFullScreen) { // Firefox
-                          displayBox.mozRequestFullScreen();
-                      } else if (displayBox.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                          displayBox.webkitRequestFullscreen();
-                      } else if (displayBox.msRequestFullscreen) { // IE/Edge
-                          displayBox.msRequestFullscreen();
-                      }
-                  } else {
-                      if (document.exitFullscreen) {
-                          document.exitFullscreen();
-                      } else if (document.mozCancelFullScreen) { // Firefox
-                          document.mozCancelFullScreen();
-                      } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
-                          document.webkitExitFullscreen();
-                      } else if (document.msExitFullscreen) { // IE/Edge
-                          document.msExitFullscreen();
-                      }
-                  }
-              });
-          });*/
-          
-let Start_btn = document.getElementById('start_btn');
+        let Start_btn = document.getElementById('start_btn');
 
-function Start_to_End() {
-    if (Start_btn.innerText === "Start") {
-        Start_btn.innerText = "Reset";
-    } else {
-        Start_btn.innerText = "Start";
-    }
-}
-function updateLEDText_to_Box(value) {  
-    const DisplayText = document.querySelector('.box');
-    DisplayText.textContent = value;
-}
+        function Start_to_End() {
+            let Start_btn = document.getElementById('start_btn');
 
-function updateTextColor() {
-    var displayText = document.querySelector('.box');
-    var textColorPicker = document.getElementById('text-color-picker');
-    displayText.style.color = textColorPicker.value;
-}
+            if (Start_btn.innerText === "Start") {
+                Start_btn.innerText = "Reset";
+                // Add the scroll-animation class to start scrolling
+                document.getElementById('display_box').classList.add('scroll-animation');
+            } else {
+                Start_btn.innerText = "Start";
+                // Remove the scroll-animation class to stop scrolling
+                document.getElementById('display_box').classList.remove('scroll-animation');
+            }
+        }
+        function updateLEDText_to_Box(value) {
+            const DisplayText = document.querySelector('.display_box');
+            DisplayText.textContent = value;
+        }
 
-function updateBackgroundColor() {
-    var displayBox = document.querySelector('.box');
-    var bgColorPicker = document.getElementById('bg-color-picker');
-    displayBox.style.backgroundColor = bgColorPicker.value;
-}
+        function updateTextColor() {
+            var displayText = document.querySelector('.display_box');
+            var textColorPicker = document.getElementById('text-color-picker');
+            displayText.style.color = textColorPicker.value;
+        }
 
-// Add event listeners to the color pickers
-document.getElementById('text-color-picker').addEventListener('input', updateTextColor);
-document.getElementById('bg-color-picker').addEventListener('input', updateBackgroundColor);
-Start_btn.addEventListener('click', Start_to_End);
+        function updateBackgroundColor() {
+            var displayBox = document.querySelector('.box');
+            var bgColorPicker = document.getElementById('bg-color-picker');
+            displayBox.style.backgroundColor = bgColorPicker.value;
+        }
 
-/* Call updateLEDText_to_Box with the input value when the text input changes
-document.getElementById('Text_input').addEventListener('input', function() {
-updateLEDText_to_Box(this.value);
-});*/
-</script>
+        // Add event listeners to the color pickers
+        document.getElementById('text-color-picker').addEventListener('input', updateTextColor);
+        document.getElementById('bg-color-picker').addEventListener('input', updateBackgroundColor);
+        Start_btn.addEventListener('click', Start_to_End);
+    </script>
 </body>
+
 </html>
