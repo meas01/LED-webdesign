@@ -69,6 +69,21 @@
         justify-content: center;
         align-items: center;
         }
+        .display_box{
+            position: absolute;
+            white-space: nowrap;
+            animation: moveRightToLeft 10s linear infinite;
+        }
+        @keyframes moveRightToLeft {
+            0% {
+                right: -100%;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+
     </style>
 </head>
 
