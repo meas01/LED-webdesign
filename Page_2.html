@@ -68,36 +68,39 @@
         .box {
             display: flex;
             justify-content: center;
-            align-items: center; /* Allow horizontal scrolling */
-            white-space: nowrap; /* Ensure text doesn't wrap */
+            align-items: center;
+            /* Allow horizontal scrolling */
+            white-space: nowrap;
+            /* Ensure text doesn't wrap */
             overflow: hidden;
             position: relative;
         }
-        
+
         /* Animation to scroll text from right to left */
         .scroll-animation {
-    position: absolute;
-    animation: moveRightToLeft 10s linear infinite;
-}
+            position: absolute;
+            animation: moveRightToLeft 10s linear infinite;
+        }
 
 
         .display_box {
             color: white;
             position: absolute;
-            white-space: nowrap; 
+            white-space: nowrap;
         }
 
         /* Keyframes for the animation */
         @keyframes moveRightToLeft {
-    0% {
-        left: 100%; /* Start off-screen */
-    }
+            0% {
+                left: 100%;
+                /* Start off-screen */
+            }
 
-    100% {
-        left: -100%; /* Move fully across the screen */
-    }
-}
-
+            100% {
+                left: -100%;
+                /* Move fully across the screen */
+            }
+        }
     </style>
 </head>
 
@@ -118,6 +121,7 @@
         </div>
         <div class="box" id="box">
             <div class="display_box" id="display_box">
+
             </div>
         </div>
         <div class="All_btn">
@@ -159,7 +163,7 @@
                 </div>
                 <div class="Bg_color">
                     <span>Background Color</span>
-                    <input type="color" id="bg-color-picker" >
+                    <input type="color" id="bg-color-picker">
                 </div>
                 <div>
                     <div class="Animation_input">
@@ -215,6 +219,37 @@
         document.getElementById('text-color-picker').addEventListener('input', updateTextColor);
         document.getElementById('bg-color-picker').addEventListener('input', updateBackgroundColor);
         Start_btn.addEventListener('click', Start_to_End);
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to start the rain animation
+            function startRain() {
+                const displayBox = document.getElementById('box');
+                for (let i = 0; i < 20; i++) {
+                    const raindrop = document.createElement('div');
+                    raindrop.className = 'rain';
+                    displayBox.appendChild(raindrop);
+                }
+            }
+            function stopRain() {
+    const displayBox = document.getElementById('box');
+    const raindrops = displayBox.querySelectorAll('.rain');
+    raindrops.forEach(raindrop => displayBox.removeChild(raindrop));
+}
+
+// Add keyboard event listener for left and right arrow keys
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowRight') {
+        startRain();
+    }
+    if (event.key === 'ArrowLeft') {
+        stopRain();
+    }
+});
+
+
+        });
+
     </script>
 </body>
 
