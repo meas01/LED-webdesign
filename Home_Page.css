@@ -113,6 +113,17 @@ body {
     border:2px solid rgb(54, 80, 255);
     transform: scale(1.1);
 }
+#frame_btn{
+    width:142px ;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    font-size: 22px;
+    padding: 10px;
+}
 .LED_btn {
     background-color: #D9D9D9;
     width:142px ;
@@ -149,6 +160,30 @@ body {
     font-size: 22px;
     padding: 10px;
     color: black;
+}
+.content {
+    text-align: center;
+}
+
+.content-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content-text {
+    font-size: 16px;
+    font-weight: 300;
+}
+.additional-text{
+    overflow-y: auto;
+    max-height: 300px;
+    max-width: 600px;
+    display: none;
+    box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 1%;
 }
 
 

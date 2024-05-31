@@ -30,12 +30,57 @@
         </div>
         
         <div class="All_btn">
-             <a style="text-decoration: none; color: black;" href="./Page_2.html" class="LED_btn">LED</a>
-             <button class="Dis_btn">Discription</button>
-             <button class="About_btn"button>About</button>
-        </div>
+            <a style="text-decoration: none; color: black;" href="./Page_2.html" id="frame_btn" class="LED_btn">LED</a>
+            <button id="Dis_btn" class="Dis_btn" >Description</button>
+            <button id="About_btn" class="About_btn">About</button>
+       </div>
+
+       <div class="content">
+        <div class="content-title"></div>
+        <p id="P" class="content-text"></p>
+    </div>
+
+    <!-- New div for additional text -->
+    <div id="additional_text" class="additional-text"></div>
 
     </div>
+
+    <script>
+        let Dis_btn = document.getElementById("Dis_btn");
+        let About_btn = document.getElementById("About_btn");
+        let additional_text = document.getElementById("additional_text");
+
+        Dis_btn.addEventListener("click", function() {
+            additional_text.style.display="inline";
+            additional_text.innerHTML = `A LED scroller is an electronic display device that uses light-emitting diodes (LEDs) to present scrolling text or graphics. These devices are designed to attract attention and convey information 
+            in a dynamic and engaging manner. LED scrollers have been made to serve a variety of purposes, ranging from advertising and public information dissemination to entertainment and decoration.<br><br>
+            1/. Purpose and Uses:<br>
+                • Advertising: Promotes products and sales effectively.<br>
+                • Public Information: Displays announcements in public spaces.<br>
+                • Entertainment: Enhances events with dynamic visuals.<br>
+                • Decoration: Adds a modern touch to interiors.<br><br>
+            2/. Eco-Friendliness:<br>
+                • Energy Efficient: Uses less power than traditional lights.<br>
+                •Long Lifespan: Reduces waste with long-lasting LEDs.<br>
+                •Lower Heat Emission: Wastes less energy, emitting minimal heat.<br>
+                •Non-Toxic: Free from hazardous substances like mercury.<br><br>
+            3/. Features:<br>
+                • Remote Control: Easily programmable via devices.<br>
+                • Color Options: Available in multiple colors, including full RGB.<br>
+                • Customizable: Flexible for different messages and graphics.<br>
+                • Weatherproof: Durable for outdoor use.<br><br>
+            LED scrollers combine practicality with eco-friendliness, making them valuable for various applications while being mindful of environmental impact.`;
+            Dis_btn.classList.add('active');
+            About_btn.classList.remove('active');
+        });
+
+        About_btn.addEventListener("click", function() {
+            additional_text.innerHTML = "This is the additional text for About." ;
+            About_btn.classList.add('active');
+            Dis_btn.classList.remove('active');
+        });
+
+    </script>
 
 </body>
 
