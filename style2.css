@@ -188,7 +188,7 @@ body {
     padding: 0;
 }
 #text-color-picker:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 .btn_3 {
     display: flex;
@@ -514,4 +514,110 @@ body {
 .rain:nth-child(20) {
     left: 70%;
     animation-delay: 0.3s;
+}
+
+ .custom-select-wrapper {
+            position: relative;
+            width: 300px;
+            width: 100%;
+
+        }
+
+        .custom-select-trigger {
+            width: 100%;
+            cursor: pointer;
+
+        }
+
+        .custom-options {
+            display: none;
+            position: absolute;
+            top: -5%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .custom-select-wrapper.open .custom-options {
+            display: grid;
+            max-width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            max-height: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+        }
+
+        .custom-option {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .custom-option:hover {
+            background: #f0f0f0;
+            transform: scale(0.9);
+        }
+
+        .custom-option:active {
+            border: 1px solid rgb(54, 80, 255);
+        }
+
+        .Text_input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Allow horizontal scrolling */
+            white-space: nowrap;
+            /* Ensure text doesn't wrap */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animation to scroll text from right to left */
+        .scroll-animation {
+            position: absolute;
+            animation: moveRightToLeft 10s linear infinite;
+        }
+
+
+        .display_box {
+            color: white;
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        /* Keyframes for the animation */
+        @keyframes moveRightToLeft {
+            0% {
+                left: 100%;
+                /* Start off-screen */
+            }
+
+            100% {
+                left: -100%;
+                /* Move fully across the screen */
+            }
+        }
+        #box {
+    transition: all 0.5s ease;
+}
+
+:fullscreen #box, 
+:-webkit-full-screen #box, 
+:-moz-full-screen #box, 
+:-ms-fullscreen #box {
+    width: 100vw;
+    height: 100vh;
 }

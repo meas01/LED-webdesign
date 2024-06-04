@@ -6,114 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page_2</title>
     <link rel="stylesheet" href="style2.css">
-    <style>
-        .custom-select-wrapper {
-            position: relative;
-            width: 300px;
-            width: 100%;
-
-        }
-
-        .custom-select-trigger {
-            width: 100%;
-            cursor: pointer;
-
-        }
-
-        .custom-options {
-            display: none;
-            position: absolute;
-            top: -5%;
-            left: 0;
-            right: 0;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .custom-select-wrapper.open .custom-options {
-            display: grid;
-            max-width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            gap: 10px;
-            padding: 10px;
-            max-height: 250px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-        }
-
-        .custom-option {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ccc;
-            cursor: pointer;
-        }
-
-        .custom-option:hover {
-            background: #f0f0f0;
-            transform: scale(0.9);
-        }
-
-        .custom-option:active {
-            border: 1px solid rgb(54, 80, 255);
-        }
-
-        .Text_input {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Allow horizontal scrolling */
-            white-space: nowrap;
-            /* Ensure text doesn't wrap */
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Animation to scroll text from right to left */
-        .scroll-animation {
-            position: absolute;
-            animation: moveRightToLeft 10s linear infinite;
-        }
-
-
-        .display_box {
-            color: white;
-            position: absolute;
-            white-space: nowrap;
-        }
-
-        /* Keyframes for the animation */
-        @keyframes moveRightToLeft {
-            0% {
-                left: 100%;
-                /* Start off-screen */
-            }
-
-            100% {
-                left: -100%;
-                /* Move fully across the screen */
-            }
-        }
-        #box {
-    transition: all 0.5s ease;
-}
-
-:fullscreen #box, 
-:-webkit-full-screen #box, 
-:-moz-full-screen #box, 
-:-ms-fullscreen #box {
-    width: 100vw;
-    height: 100vh;
-}
-
-    </style>
 </head>
 
 <body>
@@ -144,8 +36,8 @@
                 </div>
                 <div class="Speed_range">
                     <span>Speed</span>
-                    <input type="range" id="range">
-                </div>
+                    <input type="range" id="range-speed" min="1" max="10" value="5">
+                </div>                
                 <div>
                     <div class="font_input">
                         <div class="custom-select-wrapper">
@@ -188,148 +80,11 @@
             <a href="./index.html" style="text-decoration: none; color: black;" class="Back_btn">Back</a>
             <div class="font_size">
                 <span>Size</span>
-                <input type="range" id="range">
-            </div>
+                <input type="range" id="range-size" min="10" max="100" value="20">
+            </div>            
             <button id="start_btn" class="start_btn" style="text-decoration: none; color: black;">Start</button>
         </div>
     </div>
-
-    <script>
-        let Start_btn = document.getElementById('start_btn');
-
-        function Start_to_End() {
-            let Start_btn = document.getElementById('start_btn');
-
-            if (Start_btn.innerText === "Start") {
-                Start_btn.innerText = "Reset";
-                // Add the scroll-animation class to start scrolling
-                document.getElementById('display_box').classList.add('scroll-animation');
-            } else {
-                Start_btn.innerText = "Start";
-                // Remove the scroll-animation class to stop scrolling
-                document.getElementById('display_box').classList.remove('scroll-animation');
-            }
-        }
-        function updateLEDText_to_Box(value) {
-            const DisplayText = document.querySelector('.display_box');
-            DisplayText.textContent = value;
-        }
-
-        function updateTextColor() {
-            var displayText = document.querySelector('.display_box');
-            var textColorPicker = document.getElementById('text-color-picker');
-            displayText.style.color = textColorPicker.value;
-        }
-
-        function updateBackgroundColor() {
-            var displayBox = document.querySelector('.box');
-            var bgColorPicker = document.getElementById('bg-color-picker');
-            displayBox.style.backgroundColor = bgColorPicker.value;
-        }
-
-        // Add event listeners to the color pickers
-        document.getElementById('text-color-picker').addEventListener('input', updateTextColor);
-        document.getElementById('bg-color-picker').addEventListener('input', updateBackgroundColor);
-        Start_btn.addEventListener('click', Start_to_End);
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Function to start the rain animation
-            function startRain() {
-                const displayBox = document.getElementById('box');
-                for (let i = 0; i < 20; i++) {
-                    const raindrop = document.createElement('div');
-                    raindrop.className = 'rain';
-                    displayBox.appendChild(raindrop);
-                }
-            }
-            function stopRain() {
-    const displayBox = document.getElementById('box');
-    const raindrops = displayBox.querySelectorAll('.rain');
-    raindrops.forEach(raindrop => displayBox.removeChild(raindrop));
-}
-
-// Add keyboard event listener for left and right arrow keys
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'ArrowRight') {
-        startRain();
-    }
-    if (event.key === 'ArrowLeft') {
-        stopRain();
-    }
-});
-
-
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-    const box = document.getElementById('box');
-
-    box.addEventListener('dblclick', () => {
-                if (!document.fullscreenElement) {
-                    if (box.requestFullscreen) {
-                        box.requestFullscreen();
-                    } else if (box.mozRequestFullScreen) {
-                        box.mozRequestFullScreen();
-                    } else if (box.webkitRequestFullscreen) {
-                        box.webkitRequestFullscreen();
-                    } else if (box.msRequestFullscreen) {
-                        box.msRequestFullscreen();
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.mozCancelFullScreen) {
-                        document.mozCancelFullScreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'ArrowRight') {
-                    startRain();
-                }
-                if (event.key === 'ArrowLeft') {
-                    stopRain();
-                }
-            });
-
-            function startRain() {
-                for (let i = 0; i < 20; i++) {
-                    const raindrop = document.createElement('div');
-                    raindrop.className = 'rain';
-                    box.appendChild(raindrop);
-                }
-            }
-
-            function stopRain() {
-                const raindrops = box.querySelectorAll('.rain');
-                raindrops.forEach(raindrop => box.removeChild(raindrop));
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-
-</html>
-Explanation:
-CSS Adjustments:
-Added necessary styles for smooth transitions and custom select options.
-Ens
-
-
-
-
-
-
-
-
-
-
-    </script>
-</body>
-
 </html>
