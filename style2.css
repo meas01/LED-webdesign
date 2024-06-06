@@ -654,6 +654,8 @@ body {
 }
 
 
+
+
 .display_box {
     color: white;
     position: absolute;
@@ -671,6 +673,12 @@ body {
         left: -100%;
         /* Move fully across the screen */
     }
+}
+
+@keyframes Go_and_come{
+    0% { left: 0; }
+    50% { left: 300px; }
+    100% { left: 0; }
 }
 
 #box {

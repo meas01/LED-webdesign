@@ -128,8 +128,17 @@
                 </div>
                 <div>
                     <div class="Animation_input">
-                        <span>Animation</span>
+                        <div class="custom-select-wrapper" id="animation-select-wrapper">
+                            <div class="custom-select-trigger" onclick="toggleAnimationOptions()">Select Animation</div>
+                            <div class="custom-options" id="animation-options">
+                                <div class="custom-option" onclick="changeAnimation('none')">None</div>
+                                <div class="custom-option" onclick="changeAnimation('moveRightToLeft')">Right to Left</div>
+                                <div class="custom-option" onclick="changeAnimation('blink')">Go_and_come</div>
+                                <div class="custom-option" onclick="changeAnimation('Go and Come')">Fade</div>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

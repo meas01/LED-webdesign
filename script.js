@@ -21,6 +21,20 @@ function updateLEDText_to_Box(value) {
 }
 
 
+function toggleAnimationOptions() {
+    document.getElementById('animation-select-wrapper').classList.toggle('open');
+}
+
+// Add this function to handle closing the options if clicked outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.custom-select-wrapper')) {
+        document.getElementById('animation-select-wrapper').classList.remove('open');
+    }
+});
+
+
+
+
 function toggleOptions() {
     var options = document.querySelector('.custom-options');
     if (options.style.display === 'block') {
