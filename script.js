@@ -20,14 +20,24 @@ function updateLEDText_to_Box(value) {
     DisplayText.textContent = value;
 }
 
+
 function toggleOptions() {
     var options = document.querySelector('.custom-options');
     if (options.style.display === 'block') {
         options.style.display = 'none';
     } else {
         options.style.display = 'block';
+        wrapper.classList.toggle('open');
     }
 }
+
+window.addEventListener('click', function(e) {
+    var wrapper = document.querySelector('.custom-select-wrapper');
+    if (!wrapper.contains(e.target)) {
+        wrapper.classList.remove('open');
+        document.querySelector('.custom-options').style.display = 'none';
+    }
+});
 
 function changeFont(font) {
     document.getElementById('custom-select-wrapper').style.fontFamily = font;
