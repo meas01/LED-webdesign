@@ -220,6 +220,7 @@ body {
     background-color: rgb(241, 241, 241);
     border:none;
     cursor: pointer;
+    
 }
 .btn_3 button:hover ,.Frame_color:hover ,.Back_btn:hover ,.start_btn:hover {
     border:1px solid rgb(54, 80, 255);
@@ -541,10 +542,10 @@ body {
         .custom-select-wrapper.open .custom-options {
             display: grid;
             max-width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
             gap: 10px;
             padding: 10px;
-            min-height: 250px;
+            height: 100%;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
             overflow-x: hidden;

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page_2</title>
     <link rel="stylesheet" href="style2.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Faster One' rel='stylesheet'>
 </head>
 
 <body>
@@ -37,7 +40,7 @@
                 <div class="Speed_range">
                     <span>Speed</span>
                     <input type="range" id="range-speed" min="1" max="10" value="5">
-                </div>                
+                </div>
                 <div>
                     <div class="font_input">
                         <div class="custom-select-wrapper" id="custom-select-wrapper">
@@ -55,6 +58,12 @@
                                     onclick="changeFont('Times New Roman')">Times New Roman</div>
                                 <div class="custom-option" style="font-family: Verdana;"
                                     onclick="changeFont('Verdana')">Verdana</div>
+                                <div class="custom-option" style="font-family: 'Sofia';" onclick="changeFont('Sofia')"> Sofia</div>
+                                 
+                                <div class="custom-option" style="font-family: 'Bungee Shade';"
+                                    onclick="changeFont('Bungee Shade')">Bungee Shade</div>
+                                <div class="custom-option" style="font-family: 'Faster One';" onclick="changeFont('Faster One')">
+                                    Faster One</div>
                             </div>
                         </div>
                     </div>
@@ -81,12 +90,13 @@
             <div class="font_size">
                 <span>Size</span>
                 <input type="range" id="range-size" min="10" max="100" value="20">
-            </div>            
+            </div>
             <button id="start_btn" class="start_btn" style="text-decoration: none; color: black;">Start</button>
         </div>
     </div>
     <script src="script.js"></script>
-  
+
 
 </body>
+
 </html>
