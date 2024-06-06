@@ -516,17 +516,14 @@ body {
     animation-delay: 0.3s;
 }
 
- .custom-select-wrapper {
+.custom-select-wrapper {
             position: relative;
-            width: 300px;
             width: 100%;
-
         }
 
         .custom-select-trigger {
             width: 100%;
             cursor: pointer;
-
         }
 
         .custom-options {
@@ -544,12 +541,13 @@ body {
         .custom-select-wrapper.open .custom-options {
             display: grid;
             max-width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             gap: 10px;
             padding: 10px;
-            max-height: 250px;
+            min-height: 250px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .custom-option {
@@ -621,3 +619,5 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+

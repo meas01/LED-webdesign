@@ -20,6 +20,22 @@ function updateLEDText_to_Box(value) {
     DisplayText.textContent = value;
 }
 
+function toggleOptions() {
+    var options = document.querySelector('.custom-options');
+    if (options.style.display === 'block') {
+        options.style.display = 'none';
+    } else {
+        options.style.display = 'block';
+    }
+}
+
+function changeFont(font) {
+    document.getElementById('custom-select-wrapper').style.fontFamily = font;
+    var options = document.querySelector('.custom-options');
+    options.style.display = 'none';
+    document.getElementById("display_box").style.fontFamily = font;
+}
+
 function updateTextColor() {
     var displayText = document.querySelector('.display_box');
     var textColorPicker = document.getElementById('text-color-picker');
@@ -49,28 +65,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     function stopRain() {
-const displayBox = document.getElementById('box');
-const raindrops = displayBox.querySelectorAll('.rain');
-raindrops.forEach(raindrop => displayBox.removeChild(raindrop));
-}
+        const displayBox = document.getElementById('box');
+        const raindrops = displayBox.querySelectorAll('.rain');
+        raindrops.forEach(raindrop => displayBox.removeChild(raindrop));
+    }
 
-// Add keyboard event listener for left and right arrow keys
-document.addEventListener('keydown', function (event) {
-if (event.key === 'ArrowRight') {
-startRain();
-}
-if (event.key === 'ArrowLeft') {
-stopRain();
-}
-});
+    // Add keyboard event listener for left and right arrow keys
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowRight') {
+            startRain();
+        }
+        if (event.key === 'ArrowLeft') {
+            stopRain();
+        }
+    });
 
 
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-const box = document.getElementById('box');
+    const box = document.getElementById('box');
 
-box.addEventListener('dblclick', () => {
+    box.addEventListener('dblclick', () => {
         if (!document.fullscreenElement) {
             if (box.requestFullscreen) {
                 box.requestFullscreen();
@@ -138,15 +154,15 @@ function resetAll() {
     // Remove any rain elements
     stopRain();
     updateLEDText_to_Box('');
-        document.getElementById('display_box').style.fontFamily = '';
-        document.getElementById('text-color-picker').value = '#ffffff';
-        document.getElementById('bg-color-picker').value = '#000000';
-        updateTextColor();
-        updateBackgroundColor();
-        resetSpeed();
-        resetSizeText();
-        ChooseAnimation('scroll');
-        stopRain();
+    document.getElementById('display_box').style.fontFamily = '';
+    document.getElementById('text-color-picker').value = '#ffffff';
+    document.getElementById('bg-color-picker').value = '#000000';
+    updateTextColor();
+    updateBackgroundColor();
+    resetSpeed();
+    resetSizeText();
+    ChooseAnimation('scroll');
+    stopRain();
 }
 let defaultSpeed = 5;
 let defaultSize = 20;
@@ -167,7 +183,7 @@ function resetSpeed() {
     document.getElementById('range-speed').value = defaultSpeed;
     SetSpeed(defaultSpeed);
 }
-document.getElementById('range-speed').addEventListener('input', function(event) {
+document.getElementById('range-speed').addEventListener('input', function (event) {
     SetSpeed(event.target.value);
 });
 
@@ -180,6 +196,6 @@ function resetSizeText() {
     document.getElementById('range-size').value = defaultSize;
     SetSizeText(defaultSize);
 }
-document.getElementById('range-size').addEventListener('input', function(event) {
+document.getElementById('range-size').addEventListener('input', function (event) {
     SetSizeText(event.target.value);
 });
