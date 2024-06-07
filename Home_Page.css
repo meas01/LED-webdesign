@@ -130,8 +130,8 @@ body {
     padding: 1%;
 }
 #image{
-    width: 200px;
-    height: 250px;
+    max-width: 200px;
+    max-height: 250px;
 }
 .our-team{
     display: flex;
