@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page</title>
+    <link rel="stylesheet" href="Home_Page.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+                <Span class="L">L</Span>
+                <Span class="E">E</Span>
+                <Span class="d">D</Span>
+                <span class="space"></span>
+                <Span class="D">D</Span>
+                <Span class="I">Ï</Span>
+                <Span>s</Span>
+                <Span class="P">p</Span>
+                <span>l</span>
+                <span>a</span>
+                <span>y</span>
+        </div>
+        <div class="display_box">
+            <span class="Welcome ">Welcome</span>
+            <span class="Welcome ">Welcome</span>
+
+        </div>
+        
+        <!-- <div class="All_btn">
+            <a style="text-decoration: none; color: black;" href="./Page_2.html" id="frame_btn" class="LED_btn">LED</a>
+            <button onclick="myFunction()">Try it</button>
+            <div id="myDIV" class="History" >This is about History</div>
+            <button id="Dis_btn" class="Dis_btn" >Description</button>
+            <button id="About_btn" class="About_btn">About</button>
+       </div> -->
+
+       <div class="All_btn">
+            <a style="text-decoration: none; color: black;" href="./Page_2.html" class="LED_btn">LED</a>
+            <button onclick="toggleBtn('Dis_btn')" class="Dis_btn">Discription</button>
+            <button onclick="toggleBtn('About_btn')" class="About_btn">About</button>
+            
+       </div>
+
+       <div>
+            <div id="Dis_btn" style="display: none;">A LED scroller is an electronic display device that uses light-emitting diodes (LEDs) to present scrolling text or graphics. These devices are designed to attract attention and convey information 
+                in a dynamic and engaging manner. LED scrollers have been made to serve a variety of purposes, ranging from advertising and public information dissemination to entertainment and decoration.<br><br>
+                <h3>1/. Purpose and Uses:</h3>
+                    • Advertising: Promotes products and sales effectively.<br>
+                    • Public Information: Displays announcements in public spaces.<br>
+                    • Entertainment: Enhances events with dynamic visuals.<br>
+                    • Decoration: Adds a modern touch to interiors.<br><br>
+                <h3>2/. Eco-Friendliness:</h3>
+                    • Energy Efficient: Uses less power than traditional lights.<br>
+                    •Long Lifespan: Reduces waste with long-lasting LEDs.<br>
+                    •Lower Heat Emission: Wastes less energy, emitting minimal heat.<br>
+                    •Non-Toxic: Free from hazardous substances like mercury.<br><br>
+                <h3>3/. Features:</h3>
+                    • Remote Control: Easily programmable via devices.<br>
+                    • Color Options: Available in multiple colors, including full RGB.<br>
+                    • Customizable: Flexible for different messages and graphics.<br>
+                    • Weatherproof: Durable for outdoor use.<br><br>
+                LED scrollers combine practicality with eco-friendliness, making them valuable for various applications while being mindful of environmental impact.`</div>
+            <div id="About_btn" style="display: none;">
+                <div class="our-team">
+        
+                    <div class="our-team-member-depart">
+                        <div class="our-team-member">
+                            <img id="image" src="./img/Vibaksanna.jpg">
+                            <h4>SEANG CHANVIBAKSANNA</h4>
+                            <span>e20211168</span>
+                        </div>
+                    </div>
+        
+                    <div class="our-team-member-depart">
+                        <div class="our-team-member">
+                            <img id="image" src="./img/Smey.jpg">
+                            <h3>SEAN REAKSMEY</h3>
+                            <span>e20210686</span>
+                        </div>
+                    </div>
+        
+                    <div class="our-team-member-depart">
+                        <div class="our-team-member">
+                            <img id="image" src="./img/Darong.jpg">
+                            <h3>POK DARONG</h3>
+                            <span>e2021</span>
+                        </div>
+                    </div>
+
+                    <div class="our-team-member-depart">
+                        <div class="our-team-member">
+                            <img id="image" src="./img/Mengleang.jpg">
+                            <h3>Nov Mengleang</h3>
+                            <span>e20210498</span>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+       </div>
+
+        <script>
+            function toggleBtn(divId){
+                var divs = ['Dis_btn', 'About_btn'];
+                divs.forEach(function(id) {
+                    var element = document.getElementById(id);
+                    if(id === divId) {
+                        element.style.display = element.style.display === 'none' ? 'block' : 'none';
+                        element.classList.add('active');
+                    }else{
+                        element.style.display = 'none';
+                        element.classList.remove('active');
+                    }
+                });
+            }
+        </script>
+</body>
+
+</html>

@@ -113,16 +113,30 @@ body {
     border:2px solid rgb(54, 80, 255);
     transform: scale(1.1);
 }
-#frame_btn{
-    width:142px ;
-    text-align: center;
-    border:none;
-    border-radius: 5px;
+#Dis_btn{
+    overflow-y: auto;
+    max-height: 300px;
+    max-width: 750px;
+    display: none;
     box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
-    -moz-box-shadow: 9px 10px 26px -13px rgba(0,0,0,0.5);
-    font-size: 22px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 1%;
+}
+#About_btn {
+    max-height: auto;
+    max-width: 1000px;
+    display: none;
+    display: flex;
+    padding: 1%;
+}
+#image{
+    width: 200px;
+    height: 250px;
+}
+.our-team{
+    display: flex;
+    gap: 10px;
+    width: 100%;
 }
 .LED_btn {
     background-color: #D9D9D9;
@@ -175,7 +189,7 @@ body {
     font-size: 16px;
     font-weight: 300;
 }
-.additional-text{
+/* .additional-text{
     overflow-y: auto;
     max-height: 300px;
     max-width: 600px;
@@ -184,7 +198,7 @@ body {
     background-color: lightgrey;
     border-radius: 5px;
     padding: 1%;
-}
+} */
 
 
 
@@ -211,6 +225,17 @@ body {
         width: 80%;
         padding: 10%;
     }
+    #About_btn {
+        max-height: auto;
+        max-width: 1000px;
+        display: none;
+        display: flex;
+        padding: 1%;
+    }
+    #image{
+        width: 200px;
+        height: 250px;
+    }
 
     
 }
@@ -236,5 +261,46 @@ body {
         gap: 30px;
         width: 80%;
         padding: 10%;
+    }
+ 
+    .our-team{
+        padding: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: left;
+    }
+    
+    .our-team-member-depart{
+        padding: 1rem;
+        display: flex;   
+        width: 300px;
+    }
+    
+    .our-team-member{
+        background-color: #ffffff34;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: 1rem;
+        width: 100px;
+        height: auto;
+        border-radius: 1rem;
+    }
+    
+    .our-team-member h3{
+        font-size: 1rem;
+    }
+    
+    .our-team-member img{
+        width: 2rem;
+        height: auto;
+
+    }
+    #About_btn{
+        display: flex;
+        flex-direction: column;
     }
 }
