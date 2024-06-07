@@ -25,6 +25,7 @@ function toggleAnimationOptions() {
     document.getElementById('animation-select-wrapper').classList.toggle('open');
 }
 
+
 // Add this function to handle closing the options if clicked outside
 document.addEventListener('click', function(event) {
     if (!event.target.closest('.custom-select-wrapper')) {
@@ -223,3 +224,30 @@ function resetSizeText() {
 document.getElementById('range-size').addEventListener('input', function (event) {
     SetSizeText(event.target.value);
 });
+
+function changeAnimation(animationName) {
+    let displayBox = document.getElementById('display_box');
+    displayBox.style.animation = "";
+    void displayBox.offsetWidth; // Trigger reflow to restart animation
+
+    switch (animationName) {
+        case 'none':
+            displayBox.style.animation = 'none';
+            break;
+        case 'moveRightToLeft':
+            displayBox.style.animation = 'moveRightToLeft 5s linear infinite';
+            break;
+        case 'blink':
+            displayBox.style.animation = 'blink 1s step-end infinite';
+            break;
+        case 'Go and Come':
+            displayBox.style.animation = 'Go_and_Come 6s infinite';
+            break;
+        case 'come_back_with_reverse':
+            displayBox.style.animation = 'come_back_with_reverse 8s infinite';
+            break;
+        default:
+            displayBox.style.animation = 'none';
+            break;
+    }
+}
